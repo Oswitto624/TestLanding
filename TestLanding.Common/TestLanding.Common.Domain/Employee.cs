@@ -39,6 +39,9 @@ public class Employee : Entity, IOrderedEntity
     [Column(TypeName = "decimal(18,2)")]
     public decimal Salary { get; set; }
 
+    [Required]
+    public DateOnly DateOfEmployment { get; set; }
+
     public int Order { get; set; }
 
     public override string ToString() => $"[{Id}] {ShortName} ";
