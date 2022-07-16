@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\TestLanding.Services\TestLanding.Services.Interfaces\TestLanding.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>

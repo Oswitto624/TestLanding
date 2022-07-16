@@ -1,39 +1,36 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestLanding.Common", "TestLanding.Common", "{E1073DF8-FFC9-4C74-9864-050CBD06035E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{E1073DF8-FFC9-4C74-9864-050CBD06035E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLanding.Common.Domain", "TestLanding.Common\TestLanding.Common.Domain\TestLanding.Common.Domain.csproj", "{34ED74E3-336A-4D70-9504-F6256D074F42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLanding.Domain", "TestLanding.Common\TestLanding.Common.Domain\TestLanding.Domain.csproj", "{34ED74E3-336A-4D70-9504-F6256D074F42}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestLanding.Data", "TestLanding.Data", "{13CB2132-0232-4CBE-A1E3-A7E1C0A569CD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{13CB2132-0232-4CBE-A1E3-A7E1C0A569CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLanding.Data.DAL", "TestLanding.Data\TestLanding.Data.DAL\TestLanding.Data.DAL.csproj", "{BD44F685-BBAB-4182-AA32-76427196D93C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLanding.DAL", "TestLanding.Data\TestLanding.Data.DAL\TestLanding.DAL.csproj", "{BD44F685-BBAB-4182-AA32-76427196D93C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLanding.Data.SqlServer", "TestLanding.Data\TestLanding.Data.SqlServer\TestLanding.Data.SqlServer.csproj", "{6F1A418E-8334-42A5-B57A-BE1024DB77AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLanding.DAL.SqlServer", "TestLanding.Data\TestLanding.Data.SqlServer\TestLanding.DAL.SqlServer.csproj", "{6F1A418E-8334-42A5-B57A-BE1024DB77AD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestLanding.Services", "TestLanding.Services", "{BCA6F881-F995-412D-8D94-2E5113927C32}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{BCA6F881-F995-412D-8D94-2E5113927C32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLanding.Services.Interfaces", "TestLanding.Services\TestLanding.Services.Interfaces\TestLanding.Services.Interfaces.csproj", "{7AA54572-7D3E-49B9-B3A7-D9B037375B3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLanding.Interfaces", "TestLanding.Services\TestLanding.Services.Interfaces\TestLanding.Interfaces.csproj", "{7AA54572-7D3E-49B9-B3A7-D9B037375B3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLanding.Services.Services", "TestLanding.Services\TestLanding.Services.Services\TestLanding.Services.Services.csproj", "{43308D7E-1D59-4517-9030-5EFA5AE7F0EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLanding.Services", "TestLanding.Services\TestLanding.Services.Services\TestLanding.Services.csproj", "{43308D7E-1D59-4517-9030-5EFA5AE7F0EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLanding.Services.WebApi", "TestLanding.Services\TestLanding.Services.WebApi\TestLanding.Services.WebApi.csproj", "{B553AE6D-2572-4E69-952B-A44D68C4F447}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLanding.WebApi", "TestLanding.Services\TestLanding.Services.WebApi\TestLanding.WebApi.csproj", "{B553AE6D-2572-4E69-952B-A44D68C4F447}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLanding.Services.WebApi.Clients", "TestLanding.Services\TestLanding.Services.WebApi.Clients\TestLanding.Services.WebApi.Clients.csproj", "{E2198B0C-BBBA-4766-A7F8-26BDAAF597F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLanding.WebApi.Clients", "TestLanding.Services\TestLanding.Services.WebApi.Clients\TestLanding.WebApi.Clients.csproj", "{E2198B0C-BBBA-4766-A7F8-26BDAAF597F8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestLanding.UI", "TestLanding.UI", "{BAAEE0C3-0E62-4424-9E68-89ABA6D73828}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{BAAEE0C3-0E62-4424-9E68-89ABA6D73828}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLanding.UI.MVC", "TestLanding.UI\TestLanding.UI.MVC\TestLanding.UI.MVC.csproj", "{A70E0941-D4FF-43CF-9A8E-F1A23017C303}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLanding.UI.MVC", "TestLanding.UI\TestLanding.UI.MVC\TestLanding.UI.MVC.csproj", "{A70E0941-D4FF-43CF-9A8E-F1A23017C303}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{34ED74E3-336A-4D70-9504-F6256D074F42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -69,6 +66,9 @@ Global
 		{A70E0941-D4FF-43CF-9A8E-F1A23017C303}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A70E0941-D4FF-43CF-9A8E-F1A23017C303}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{34ED74E3-336A-4D70-9504-F6256D074F42} = {E1073DF8-FFC9-4C74-9864-050CBD06035E}
 		{BD44F685-BBAB-4182-AA32-76427196D93C} = {13CB2132-0232-4CBE-A1E3-A7E1C0A569CD}
@@ -78,5 +78,8 @@ Global
 		{B553AE6D-2572-4E69-952B-A44D68C4F447} = {BCA6F881-F995-412D-8D94-2E5113927C32}
 		{E2198B0C-BBBA-4766-A7F8-26BDAAF597F8} = {BCA6F881-F995-412D-8D94-2E5113927C32}
 		{A70E0941-D4FF-43CF-9A8E-F1A23017C303} = {BAAEE0C3-0E62-4424-9E68-89ABA6D73828}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2912E118-C7AF-4BA4-BAE4-5F17A57B385A}
 	EndGlobalSection
 EndGlobal

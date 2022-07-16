@@ -6,4 +6,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\TestLanding.Common\TestLanding.Common.Domain\TestLanding.Domain.csproj" />
+    <ProjectReference Include="..\..\TestLanding.Data\TestLanding.Data.SqlServer\TestLanding.DAL.SqlServer.csproj" />
+    <ProjectReference Include="..\..\TestLanding.Services\TestLanding.Services.Interfaces\TestLanding.Interfaces.csproj" />
+    <ProjectReference Include="..\..\TestLanding.Services\TestLanding.Services.Services\TestLanding.Services.csproj" />
+  </ItemGroup>
+
 </Project>
