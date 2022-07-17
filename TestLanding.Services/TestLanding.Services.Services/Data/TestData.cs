@@ -4,19 +4,19 @@ namespace TestLanding.Services.Data;
 
 public class TestData
 {
-    public static ICollection<Department> Departments { get; } = new List<Department>()
+    public static IEnumerable<Department> Departments { get; } = new[]
     {
-        new() { Name = "Logistic" },
-        new() { Name = "Sales" },
-        new() { Name = "Development" },
-        new() { Name = "Research" },
-        new() { Name = "HR" },
-        new() { Name = "Support"},
+        new Department { Id = 1, Name = "Logistic", Order = 0 },
+        new Department { Id = 2, Name = "Sales", Order = 1 },
+        new Department { Id = 3, Name = "Development", Order = 2 },
+        new Department { Id = 4, Name = "Research", Order = 3 },
+        new Department { Id = 5, Name = "HR", Order = 4 },
+        new Department { Id = 6, Name = "Support", Order = 5 },
     };
 
-    public static ICollection<Employee> Employees { get; } = new List<Employee>()
+    public static IEnumerable<Employee> Employees { get; } = new[]
     {
-        new()
+        new Employee 
         {
             Department = Departments.First(d => d.Id == 0),
             LastName="Иванов",
@@ -25,7 +25,7 @@ public class TestData
             DateOfEmployment = new DateTime(2010, 6, 13),
             Salary = 15000,
         },
-        new()
+        new Employee
         {
             Department = Departments.First(d => d.Id == 1),
             LastName = "Иванов",
@@ -34,7 +34,7 @@ public class TestData
             DateOfEmployment = new DateTime(2012, 8, 15),
             Salary = 20000,
         },
-        new()
+        new Employee
         {
             Department = Departments.First(d => d.Id == 2),
             LastName = "Сидоров",
@@ -43,7 +43,7 @@ public class TestData
             DateOfEmployment = new DateTime(2014, 9, 11),
             Salary = 24000,
         },
-        new()
+        new Employee
         {
             Department = Departments.First(d => d.Id == 3),
             LastName = "Выготский",
@@ -52,7 +52,7 @@ public class TestData
             DateOfEmployment = new DateTime(2015, 12, 9),
             Salary = 30000,
         },
-        new()
+        new Employee
         {
             Department = Departments.First(d => d.Id == 4),
             LastName = "Вернадский",
@@ -61,7 +61,7 @@ public class TestData
             DateOfEmployment = new DateTime(2018, 10, 22),
             Salary = 14000,
         },
-        new()
+        new Employee
         {
             Department = Departments.First(d => d.Id == 5),
             LastName = "Кюри",
@@ -70,7 +70,7 @@ public class TestData
             DateOfEmployment = new DateTime(2011, 3, 30),
             Salary = 45000,
         },
-        new()
+        new Employee
         {
             Department = Departments.First(d => d.Id == 0),
             LastName = "Гордеева",
@@ -79,7 +79,7 @@ public class TestData
             DateOfEmployment = new DateTime(2022, 2, 24),
             Salary = 50000,
         },
-        new()
+        new Employee
         {
             Department = Departments.First(d => d.Id == 1),
             LastName = "Циолковский",
@@ -88,7 +88,7 @@ public class TestData
             DateOfEmployment = new DateTime(2015, 5, 1),
             Salary = 55000,
         },
-        new()
+        new Employee
         {
             Department = Departments.First(d => d.Id == 2),
             LastName = "Кнорозов",
@@ -97,7 +97,7 @@ public class TestData
             DateOfEmployment = new DateTime(2008, 4, 2),
             Salary = 35000,
         },
-        new()
+        new Employee
         {
             Department = Departments.First(d => d.Id == 3),
             LastName = "Цветаева",
@@ -106,7 +106,7 @@ public class TestData
             DateOfEmployment = new DateTime(2021, 3, 18),
             Salary = 9000,
         },
-        new()
+        new Employee
         {
             Department = Departments.First(d => d.Id == 4),
             LastName = "Айвазовский",
@@ -115,7 +115,7 @@ public class TestData
             DateOfEmployment = new DateTime(2020, 2, 10),
             Salary = 30000,
         },
-        new()
+        new Employee
         {
             Department = Departments.First(d => d.Id == 5),
             LastName = "Кулибин",

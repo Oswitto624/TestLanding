@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\TestLanding.Data\TestLanding.Data.DAL\TestLanding.DAL.csproj" />
-    <ProjectReference Include="..\..\TestLanding.Data\TestLanding.Data.SqlServer\TestLanding.DAL.SqlServer.csproj" />
     <ProjectReference Include="..\TestLanding.Services.Services\TestLanding.Services.csproj" />
   </ItemGroup>
 

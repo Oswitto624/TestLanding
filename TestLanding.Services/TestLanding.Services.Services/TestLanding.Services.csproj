@@ -7,7 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\TestLanding.Common\TestLanding.Common.Domain\TestLanding.Domain.csproj" />
+    <ProjectReference Include="..\..\TestLanding.Data\TestLanding.Data.DAL\TestLanding.DAL.csproj" />
     <ProjectReference Include="..\TestLanding.Services.Interfaces\TestLanding.Interfaces.csproj" />
   </ItemGroup>
 

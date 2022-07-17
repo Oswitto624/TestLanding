@@ -1,25 +1,32 @@
 using Microsoft.EntityFrameworkCore;
-using TestLanding.DAL;
-using TestLanding.DAL.SqlServer;
+using TestLanding.DAL.Context;
+using TestLanding.Interfaces;
+using TestLanding.Services.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var configuration = builder.Configuration;
 
-services.AddTestLandingSqlServer(configuration.GetConnectionString("SqlServer"));
+services.AddDbContext<TestLandingDB>(opt => opt.UseSqlServer(configuration.GetConnectionString("SqlServer")));
+
+services.AddTransient<IDbInitializer, DbInitializer>();
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+using (var scope = app.Services.CreateScope())
+{
+    var db_initializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+    await db_initializer.InitializeAsync(RemoveBefore: false);
+}
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

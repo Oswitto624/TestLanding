@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TestLanding.DAL;
+using TestLanding.DAL.Context;
 
 #nullable disable
 
-namespace TestLanding.DAL.SqlServer.Migrations
+namespace TestLanding.DAL.Migrations
 {
     [DbContext(typeof(TestLandingDB))]
-    [Migration("20220717123019_Initial")]
-    partial class Initial
+    [Migration("20220717172527_Initialize")]
+    partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
