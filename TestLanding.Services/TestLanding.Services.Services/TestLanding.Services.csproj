@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\TestLanding.Common\TestLanding.Common.Domain\TestLanding.Domain.csproj" />
     <ProjectReference Include="..\TestLanding.Services.Interfaces\TestLanding.Interfaces.csproj" />
   </ItemGroup>
 
