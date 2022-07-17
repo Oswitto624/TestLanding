@@ -35,7 +35,7 @@ public class DbInitializer : IDbInitializer
         if (RemoveBefore)
             await RemoveAsync(Cancel).ConfigureAwait(false);
 
-        await db.Database.EnsureCreatedAsync(Cancel).ConfigureAwait(false);
+        //await db.Database.EnsureCreatedAsync(Cancel).ConfigureAwait(false);
 
         var pending_migrations = await db.Database.GetPendingMigrationsAsync(Cancel).ConfigureAwait(false);
         if (pending_migrations.Any())
@@ -67,10 +67,7 @@ public class DbInitializer : IDbInitializer
         {
             await db.Departments.AddRangeAsync(TestData.Departments, Cancel).ConfigureAwait(false);
 
-            await db.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT [dbo].[Departments] ON", Cancel).ConfigureAwait(false);
-
             await db.SaveChangesAsync(Cancel).ConfigureAwait(false);
-            await db.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT [dbo].[Departments] OFF", Cancel).ConfigureAwait(false);
 
             await transaction.CommitAsync(Cancel).ConfigureAwait(false);
         }
@@ -80,10 +77,7 @@ public class DbInitializer : IDbInitializer
         {
             await db.Employees.AddRangeAsync(TestData.Employees, Cancel).ConfigureAwait(false);
 
-            await db.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT [dbo].[Employees] ON", Cancel).ConfigureAwait(false);
-
             await db.SaveChangesAsync(Cancel).ConfigureAwait(false);
-            await db.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT [dbo].[Employees] OFF", Cancel).ConfigureAwait(false);
 
             await transaction.CommitAsync(Cancel).ConfigureAwait(false);
         }
