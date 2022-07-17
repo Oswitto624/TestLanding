@@ -1,11 +1,13 @@
-﻿using TestLanding.Domain.Base;
+﻿using Microsoft.EntityFrameworkCore;
+using TestLanding.Domain.Base;
 using TestLanding.Interfaces.Base.Entities;
 
 namespace TestLanding.Domain;
 
-public class Department : Entity, IOrderedEntity
+[Index(nameof(Name), IsUnique = true, Name = "NameIndex")]
+public class Department : NamedEntity, IOrderedEntity
 {
-    public string DepartmentName { get; set; } = null!;
-
     public int Order { get; set; }
+
+    public ICollection<Employee> Employees { get; set; } = new HashSet<Employee>();
 }

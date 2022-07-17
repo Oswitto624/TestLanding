@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\TestLanding.Services\TestLanding.Services.Interfaces\TestLanding.Interfaces.csproj" />
   </ItemGroup>
 
