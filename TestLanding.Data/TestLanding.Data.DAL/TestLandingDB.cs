@@ -11,5 +11,4 @@ public class TestLandingDB : DbContext
 
     public TestLandingDB(DbContextOptions<TestLandingDB> options) : base(options) { }
 
-
 }

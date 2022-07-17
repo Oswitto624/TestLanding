@@ -40,7 +40,9 @@ public class Employee : Entity, IOrderedEntity
     public decimal Salary { get; set; }
 
     [Required]
-    public DateOnly DateOfEmployment { get; set; }
+    [DataType(DataType.Date)]
+    [Column(TypeName = "Date")]
+    public DateTime DateOfEmployment { get; set; }
 
     public int Order { get; set; }
 
