@@ -1,4 +1,4 @@
-﻿namespace TestLanding.Interfaces.Base;
+﻿namespace TestLanding.Domain.Base.Interfaces;
 
 public interface IPage<out T>
 {

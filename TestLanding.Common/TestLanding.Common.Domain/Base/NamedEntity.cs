@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using TestLanding.Interfaces.Base.Entities;
+using TestLanding.Domain.Base.Interfaces;
 
 namespace TestLanding.Domain.Base;
 

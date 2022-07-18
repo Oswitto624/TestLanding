@@ -1,4 +1,4 @@
-﻿using TestLanding.Interfaces.Base;
+﻿using TestLanding.Domain.Base.Interfaces;
 
 namespace TestLanding.Domain;
 

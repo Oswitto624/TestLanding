@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TestLanding.Domain.Base;
-using TestLanding.Interfaces.Base.Entities;
+using TestLanding.Domain.Base.Interfaces;
 
 namespace TestLanding.Domain;
 

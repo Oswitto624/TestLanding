@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using TestLanding.Domain.Base;
-using TestLanding.Interfaces.Base.Entities;
+using TestLanding.Domain.Base.Interfaces;
 
 namespace TestLanding.Domain;
 

@@ -1,4 +1,4 @@
-﻿namespace TestLanding.Interfaces.Base.Entities;
+﻿namespace TestLanding.Domain.Base.Interfaces;
 
 public interface INamedEntity : IEntity
 {
