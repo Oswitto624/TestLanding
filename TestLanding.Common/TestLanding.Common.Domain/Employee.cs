@@ -44,6 +44,10 @@ public class Employee : Entity, IOrderedEntity
     [Column(TypeName = "Date")]
     public DateTime DateOfEmployment { get; set; }
 
+    [DataType(DataType.Date)]
+    [Column(TypeName = "Date")]
+    public DateTime DateOfBirth { get; set; }
+
     public int Order { get; set; }
 
     public override string ToString() => $"[{Id}] {Department.Name} {ShortName} {DateOfEmployment}";
