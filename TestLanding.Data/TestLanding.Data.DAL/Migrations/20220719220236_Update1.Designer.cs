@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestLanding.DAL.Context;
 
@@ -11,9 +12,10 @@ using TestLanding.DAL.Context;
 namespace TestLanding.DAL.Migrations
 {
     [DbContext(typeof(TestLandingDB))]
-    partial class TestLandingDBModelSnapshot : ModelSnapshot
+    [Migration("20220719220236_Update1")]
+    partial class Update1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
