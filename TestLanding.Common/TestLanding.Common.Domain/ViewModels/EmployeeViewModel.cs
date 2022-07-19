@@ -43,6 +43,10 @@ public class EmployeeViewModel : IValidatableObject
     [Required(ErrorMessage = "Дата рождения является обязательной!")]
     public DateTime DateOfBirth { get; set; }
 
+    [Display(Name = "Фамилия и инициалы")]
+    public string? ShortName { get; set; }
+
+
     public IEnumerable<ValidationResult> Validate(ValidationContext Context)
     {
         yield return ValidationResult.Success!;

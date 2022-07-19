@@ -25,7 +25,8 @@ public class TestData
                 Patronymic = "Иванович",
                 DateOfEmployment = new DateTime(2010, 6, 13),
                 Salary = 15000,
-                Department = departments[0]
+                Department = departments[0],
+                DateOfBirth = new DateTime(1989, 6, 11),                
             },
             new Employee
             {
@@ -34,7 +35,8 @@ public class TestData
                 Patronymic = "Сергеевич",
                 DateOfEmployment = new DateTime(2012, 8, 15),
                 Salary = 20000,
-                Department = departments[1]
+                Department = departments[1],
+                DateOfBirth = new DateTime(1994, 7, 13),
             },
             new Employee
             {
@@ -43,7 +45,8 @@ public class TestData
                 Patronymic = "Анатольевич",
                 DateOfEmployment = new DateTime(2014, 9, 11),
                 Salary = 24000,
-                Department = departments[2]
+                Department = departments[2],
+                DateOfBirth = new DateTime(2000, 8, 1),
             },
             new Employee
             {
@@ -52,7 +55,8 @@ public class TestData
                 Patronymic = "Семёнович",
                 DateOfEmployment = new DateTime(2015, 12, 9),
                 Salary = 30000,
-                Department = departments[3]
+                Department = departments[3],
+                DateOfBirth = new DateTime(1979, 9, 19),
             },
             new Employee
             {
@@ -61,7 +65,8 @@ public class TestData
                 Patronymic = "Павлович",
                 DateOfEmployment = new DateTime(2018, 10, 22),
                 Salary = 14000,
-                Department = departments[4]
+                Department = departments[4],
+                DateOfBirth = new DateTime(1995, 10, 30),
             },
             new Employee
             {
@@ -70,7 +75,8 @@ public class TestData
                 Patronymic = "Владимировна",
                 DateOfEmployment = new DateTime(2011, 3, 30),
                 Salary = 45000,
-                Department = departments[5]
+                Department = departments[5],
+                DateOfBirth = new DateTime(1980, 11, 24),
             },
             new Employee
             {
@@ -79,7 +85,8 @@ public class TestData
                 Patronymic = "Владимировна",
                 DateOfEmployment = new DateTime(2022, 2, 24),
                 Salary = 50000,
-                Department = departments[0]
+                Department = departments[0],
+                DateOfBirth = new DateTime(1984, 12, 10),
             },
             new Employee
             {
@@ -88,7 +95,8 @@ public class TestData
                 Patronymic = "Эдуардович",
                 DateOfEmployment = new DateTime(2015, 5, 1),
                 Salary = 55000,
-                Department = departments[1]
+                Department = departments[1],
+                DateOfBirth = new DateTime(1970, 1, 11),
             },
             new Employee
             {
@@ -97,7 +105,8 @@ public class TestData
                 Patronymic = "Валентинович",
                 DateOfEmployment = new DateTime(2008, 4, 2),
                 Salary = 35000,
-                Department = departments[2]
+                Department = departments[2],
+                DateOfBirth = new DateTime(1979, 2, 14),
             },
             new Employee
             {
@@ -106,7 +115,8 @@ public class TestData
                 Patronymic = "Ивановна",
                 DateOfEmployment = new DateTime(2021, 3, 18),
                 Salary = 9000,
-                Department = departments[3]
+                Department = departments[3],
+                DateOfBirth = new DateTime(1989, 3, 8),
             },
             new Employee
             {
@@ -115,7 +125,8 @@ public class TestData
                 Patronymic = "Константинович",
                 DateOfEmployment = new DateTime(2020, 2, 10),
                 Salary = 30000,
-                Department = departments[4]
+                Department = departments[4],
+                DateOfBirth = new DateTime(1997, 4, 12),
             },
             new Employee
             {
@@ -124,7 +135,8 @@ public class TestData
                 Patronymic = "Петрович",
                 DateOfEmployment = new DateTime(2019, 1, 20),
                 Salary = 25000,
-                Department = departments[5]
+                Department = departments[5],
+                DateOfBirth = new DateTime(1991, 5, 1),
             },
         };
 
