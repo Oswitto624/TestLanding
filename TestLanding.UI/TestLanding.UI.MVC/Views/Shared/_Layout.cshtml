@@ -20,10 +20,10 @@
             <partial name="Partial/_Header"/>
 
             <!-- Body -->
-            @RenderBody()
-
+            <div class="project container">
+                @RenderBody()
+            </div>
         </div>
-
         <!-- Footer -->
         <partial name="Partial/_Footer"/>
 
@@ -32,6 +32,7 @@
 </body>
 
 <!-- Scripts -->              
-<partial name="Partial/_Scripts"/>
+@await RenderSectionAsync("Scripts", false) 
+
 
 </html>

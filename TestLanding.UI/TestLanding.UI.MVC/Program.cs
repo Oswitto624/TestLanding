@@ -15,6 +15,7 @@ services.AddDbContext<TestLandingDB>(opt => opt.UseSqlServer(configuration.GetCo
 
 services.AddTransient<IDbInitializer, DbInitializer>();
 
+services.AddScoped<IEmployeesData, SqlEmployesService>();
 
 var app = builder.Build();
 

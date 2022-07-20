@@ -2,6 +2,7 @@
 using TestLanding.Domain;
 using TestLanding.Domain.ViewModels;
 using TestLanding.Interfaces;
+using TestLanding.Services.Mapping;
 
 namespace TestLanding.UI.MVC.Controllers;
 
@@ -19,7 +20,7 @@ public class EmployeesController : Controller
     public async Task<IActionResult> Index()
     {
         var employees = await _EmployeesData.GetAllAsync();
-        return View(employees);
+        return View(employees.ToView());
     }
 
     public async Task<IActionResult> Details(int Id)
@@ -29,7 +30,7 @@ public class EmployeesController : Controller
         if (employee == null)
             return NotFound();
 
-        return View(employee);
+        return View(employee.ToView());
     }
 
     public IActionResult Create() => View("Edit", new EmployeeViewModel());
@@ -45,16 +46,7 @@ public class EmployeesController : Controller
         if (employee is null)
             return NotFound();
 
-        var model = new EmployeeViewModel
-        {
-            Id = employee.Id,
-            LastName = employee.LastName,
-            FirstName = employee.FirstName,
-            Patronymic = employee.Patronymic,
-            Salary = employee.Salary,
-            DateOfEmployment = employee.DateOfEmployment,
-            Department = employee.Department,
-        };
+        var model = employee.ToView();
 
         return View(model);
     }
@@ -64,23 +56,15 @@ public class EmployeesController : Controller
     {
         if (!ModelState.IsValid) return View(Model);
 
-        var employee = new Employee
-        {
-            Id = Model.Id,
-            FirstName = Model.FirstName,
-            LastName = Model.LastName,
-            Patronymic = Model.Patronymic,
-            Salary = Model.Salary,
-            DateOfEmployment = Model.DateOfEmployment,
-            Department = Model.Department,            
-        };
+        var employee = Model.FromView();
+
         if (Model.Id == 0)
         {
-            var id = await _EmployeesData.AddAsync(employee);
+            var id = await _EmployeesData.AddAsync(employee!);
             return RedirectToAction(nameof(Details), new { id });
         }
 
-        await _EmployeesData.EditAsync(employee);
+        await _EmployeesData.EditAsync(employee!);
         return RedirectToAction(nameof(Index));
     }
 
@@ -93,16 +77,7 @@ public class EmployeesController : Controller
         if (employee is null)
             return NotFound();
 
-        var model = new EmployeeViewModel
-        {
-            Id = employee.Id,
-            LastName = employee.LastName,
-            FirstName = employee.FirstName,
-            Patronymic = employee.Patronymic,
-            Salary = employee.Salary,
-            DateOfEmployment = employee.DateOfEmployment,
-            Department = employee.Department,
-        };
+        var model = employee.ToView();
 
         return View(model);
     }

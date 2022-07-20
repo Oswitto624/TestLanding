@@ -32,7 +32,10 @@ public class Employee : Entity, IOrderedEntity
         }
     }
 
+    public int DepartmentId { get; set; }
+
     [Required]
+    [ForeignKey(nameof(DepartmentId))]
     public Department Department { get; set; } = null!;
 
     [Required]
@@ -44,6 +47,7 @@ public class Employee : Entity, IOrderedEntity
     [Column(TypeName = "Date")]
     public DateTime DateOfEmployment { get; set; }
 
+    [Required]
     [DataType(DataType.Date)]
     [Column(TypeName = "Date")]
     public DateTime DateOfBirth { get; set; }

@@ -2,19 +2,19 @@
     <div class="container top__box">
         <ul class="top__menu">
             <li>
-                <a href="#"><img src="img/main_logo.png" alt="Главная"></a>
+                <a asp-controller="Home" asp-action="Index"><img src="~/img/main_logo.png" alt="Главная"></a>
             </li>
             <li>
-                <a href="#"><img src="img/contacts.png" alt="Контакты"></a>
+                <a asp-controller="Employees" asp-action="Index"><img src="~/img/contacts.png" alt="Контакты"></a>
             </li>
         </ul>
         <div class="top__info">
             <h1 class="top__heading">Work In Time IT Solutions ltd.</h1>
 
             <li class="header__menu">
-                <ul class="header__menu__li"> <a href="#" class="top__button">На главную</a>
+                <ul class="header__menu__li"> <a asp-controller="Home" asp-action="Index" class="top__button">На главную</a>
                 </ul>
-                <ul class="header__menu__li"> <a href="#" class="top__button">Наши сотрудники</a>
+                <ul class="header__menu__li"> <a asp-controller="Employees" asp-action="Index" class="top__button">Наши сотрудники</a>
                 </ul>
             </li>
         </div>

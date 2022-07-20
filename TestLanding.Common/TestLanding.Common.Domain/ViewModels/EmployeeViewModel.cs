@@ -27,21 +27,25 @@ public class EmployeeViewModel : IValidatableObject
     public string? Patronymic { get; set; }
 
     [Display(Name = "Отдел")]
+    //[Required(ErrorMessage = "Название отдела должнен быть указано!")]
+    public string Department { get; set; } = null!;
+
+    [Display(Name = "Id отдела")]
     [Required(ErrorMessage = "Id отдела должнен быть указан!")]
-    public Department Department { get; set; } = null!;
+    public int DepartmentId { get; set; }
 
     [Display(Name = "Зарплата")]
     [Required(ErrorMessage = "Зарплата должна быть указана!")]
-    [Range(0, 100000, ErrorMessage = "Возраст должен быть в пределах от 18 до 80 лет!")]
+    [Range(0, 100000, ErrorMessage = "Зарплата не меньше 0 и не больше 100.000!")]
     public decimal Salary { get; set; }
 
     [Display(Name = "Дата устройства")]
     [Required(ErrorMessage = "Дата устройства является обязательной!")]
-    public DateTime DateOfEmployment { get; set; }
+    public DateTime DateOfEmployment { get; set; } 
 
     [Display(Name = "Дата рождения")]
     [Required(ErrorMessage = "Дата рождения является обязательной!")]
-    public DateTime DateOfBirth { get; set; }
+    public DateTime DateOfBirth { get; set; } 
 
     [Display(Name = "Фамилия и инициалы")]
     public string? ShortName { get; set; }

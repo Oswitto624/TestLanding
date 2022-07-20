@@ -29,6 +29,7 @@ public class SqlEmployesService : IEmployeesData
             return Enumerable.Empty<Employee>();
 
         var items = await _db.Employees
+            .Include(c => c.Department)
             .Skip(Skip)
             .Take(Take)
             .ToArrayAsync(Cancel)
@@ -45,6 +46,7 @@ public class SqlEmployesService : IEmployeesData
             return new(Enumerable.Empty<Employee>(), PageIndex, PageSize, total_count);
 
         var items = await _db.Employees
+            .Include(c => c.Department)
             .Skip(PageIndex * PageSize)
             .Take(PageSize)
             .ToArrayAsync(Cancel);
@@ -54,13 +56,14 @@ public class SqlEmployesService : IEmployeesData
 
     public async Task<IEnumerable<Employee>> GetAllAsync(CancellationToken Cancel = default)
     {
-        var employees = await _db.Employees.ToArrayAsync(Cancel).ConfigureAwait(false);
+        var employees = await _db.Employees.Include(c => c.Department).ToArrayAsync(Cancel).ConfigureAwait(false);
         return employees;
     }
 
     public async Task<Employee?> GetByIdAsync(int id, CancellationToken Cancel = default)
     {
         var employee = await _db.Employees
+            .Include(c => c.Department)
             .FirstOrDefaultAsync(e => e.Id == id, Cancel)
             .ConfigureAwait(false);
 
@@ -83,7 +86,7 @@ public class SqlEmployesService : IEmployeesData
         if (employee is null)
             throw new ArgumentNullException(nameof(employee));
 
-        if (!await _db.Employees.AnyAsync(e => e.Id == employee.Id, Cancel).ConfigureAwait(false))
+        if (!await _db.Employees.Include(c => c.Department).AnyAsync(e => e.Id == employee.Id, Cancel).ConfigureAwait(false))
             return false;
 
         _db.Update(employee);
@@ -97,6 +100,7 @@ public class SqlEmployesService : IEmployeesData
     public async Task<bool> DeleteAsync(int id, CancellationToken Cancel = default)
     {
         var db_employee = await _db.Employees
+            .Include(c => c.Department)
             .Select(e => new Employee { Id = e.Id })
             .FirstOrDefaultAsync(e => e.Id == id, Cancel)
             .ConfigureAwait(false);

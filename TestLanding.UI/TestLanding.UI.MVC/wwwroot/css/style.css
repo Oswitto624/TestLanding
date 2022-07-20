@@ -210,21 +210,23 @@ body {
     left: 32px;
 }
 
+.buttons_group{
+    margin-top: 25px;
+}
 
 /* ф у т е р */
-
 .footer {
     background: #316099;
-    margin-top: 112px;
-    padding-top: 64px;
-    padding-bottom: 64px;
+    margin-top: 48px;
+    padding-top: 24px;
+    padding-bottom: 16px;
 }
 
 .footer__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 50px;
+    padding-bottom: 8px;
 }
 
 .footer__info {
@@ -260,7 +262,7 @@ body {
 .footer__list {
     display: flex;
     justify-content: space-around;
-    margin-top: 64px;
+    margin-top: 16px;
 }
 
 .footer__list__text {
@@ -298,7 +300,7 @@ body {
 }
 
 .footer__copy {
-    margin-top: 64px;
+    margin-top: 16px;
 }
 
 .footer__copy-text {
@@ -681,4 +683,5 @@ body {
     .footer__copy-text {
         text-align: center;
     }
+
 }
