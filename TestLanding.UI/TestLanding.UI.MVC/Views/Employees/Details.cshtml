@@ -1,0 +1,62 @@
+﻿@model TestLanding.Domain.Employee
+
+@{
+    ViewData["Title"] = "О сотруднике";
+}
+
+<div class="container">
+    <div>
+        <h4>Сотрудник @Model.ShortName</h4>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Patronymic)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Patronymic)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.DateOfBirth)
+            </dd>
+    
+            <hr/>
+    
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Department)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Department)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Salary)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Salary)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.DateOfEmployment)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.DateOfEmployment)
+            </dd>
+        </dl>
+    </div>
+    <div>
+      <a asp-action="Index">Back to List</a>
+    </div>
+</div>

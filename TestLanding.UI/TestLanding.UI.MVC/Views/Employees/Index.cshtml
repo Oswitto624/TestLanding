@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TestLanding.Domain.Employee>
+
+<div class="container">
+    
+    <a asp-action="Create" class="btn btn-info">Создать работника</a>
+    
+    <hr />
+
+    @if (Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                 <th>Id</th>
+                 <th>Фамилия</th>
+                 <th>Имя</th>
+                 <th>Отчество</th>  
+                 <th>Дата рождения</th>
+                 <th>Отдел</th>
+                 <th>Зарплата</th>
+                 <th>Дата приёма<br>на работу</th>
+                 <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach(var employee in Model)
+                {
+                    <tr>
+                        <td>@employee.Id</td>
+                        <td>@employee.LastName</td>
+                        <td>@employee.FirstName</td>
+                        <td>@employee.Patronymic</td>
+                        <td>@employee.DateOfBirth</td>
+                        <td>@employee.Department</td>
+                        <td>@employee.Salary</td>
+                        <td>@employee.DateOfEmployment</td>
+                        <td>
+                             <a asp-action="Edit" asp-route-id="@employee.Id">
+                                 <span class="fa fa-edit"></span>
+                             </a>
+                             <a asp-action="Delete" asp-route-id="@employee.Id" class="text-danger">
+                                 <span class="fa fa-times"></span>
+                             </a>
+                         </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
