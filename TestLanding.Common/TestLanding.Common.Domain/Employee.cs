@@ -39,6 +39,7 @@ public class Employee : Entity, IOrderedEntity
     public Department Department { get; set; } = null!;
 
     [Required]
+    [DataType(DataType.Currency)]
     [Column(TypeName = "decimal(18,2)")]
     public decimal Salary { get; set; }
 
