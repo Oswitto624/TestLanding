@@ -23,6 +23,12 @@ public class SqlEmployesService : IEmployeesData
         return count;
     }
 
+    public IEnumerable<Department> GetDepartments(CancellationToken Cancel = default)
+    {
+        return _db.Departments;
+    }
+
+
     public async Task<IEnumerable<Employee>> GetAsync(int Skip, int Take, CancellationToken Cancel = default)
     {
         if (Take == 0)
@@ -118,4 +124,5 @@ public class SqlEmployesService : IEmployeesData
 
         return true;
     }
+
 }

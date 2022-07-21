@@ -19,4 +19,6 @@ public interface IEmployeesData
     Task<bool> EditAsync(Employee employee, CancellationToken CancellationToken = default);
 
     Task<bool> DeleteAsync(int id, CancellationToken CancellationToken = default);
+
+    IEnumerable<Department> GetDepartments(CancellationToken CancellationToken = default);
 }

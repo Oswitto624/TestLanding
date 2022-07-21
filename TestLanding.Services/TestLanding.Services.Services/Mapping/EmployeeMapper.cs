@@ -33,7 +33,7 @@ public static class EmployeeMapper
             DateOfBirth = employee.DateOfBirth,
             Salary = employee.Salary,
             DateOfEmployment = employee.DateOfEmployment,
-            DepartmentId = employee.DepartmentId,
+            DepartmentId = employee.Department.Id,
             Department = employee.Department,
         };
 

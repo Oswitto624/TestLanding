@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using TestLanding.Domain;
 using TestLanding.Domain.ViewModels;
 using TestLanding.Interfaces;
@@ -33,7 +34,11 @@ public class EmployeesController : Controller
         return View(employee.ToView());
     }
 
-    public IActionResult Create() => View("Edit", new EmployeeViewModel());
+    public IActionResult Create()
+    {
+        DepartmentDropDownList();
+        return View("Edit", new EmployeeViewModel());
+    }
 
     public async Task<IActionResult> Edit(int? Id)
     {
@@ -43,6 +48,8 @@ public class EmployeesController : Controller
         }
 
         var employee = await _EmployeesData.GetByIdAsync(id);
+        DepartmentDropDownList(employee!.DepartmentId);
+
         if (employee is null)
             return NotFound();
 
@@ -54,9 +61,10 @@ public class EmployeesController : Controller
     [HttpPost]
     public async Task<IActionResult> Edit(EmployeeViewModel Model)
     {
-        if (ModelState.IsValid) return View(Model);
+        if (!ModelState.IsValid) return View(Model);
 
         var employee = Model.FromView();
+        DepartmentDropDownList(Model.DepartmentId);
 
         if (Model.Id == 0)
         {
@@ -91,4 +99,10 @@ public class EmployeesController : Controller
         return RedirectToAction(nameof(Index));
     }
 
+
+    private void DepartmentDropDownList(object? selectedDepartment = null)
+    {
+        var departments = _EmployeesData.GetDepartments();
+        ViewBag.DepartmentId = new SelectList(departments, "Id", "Name", selectedDepartment);
+    }
 }
