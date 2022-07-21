@@ -1,0 +1,16 @@
+Скрипт выборки всех сотрудников:
+SELECT * FROM Employees
+
+Скрипт выборки всех сотрудников, у кого зп выше 10000:
+SELECT * FROM Employees
+WHERE Salary > 10000
+
+Скрипт удаления сотрудников старше 70 лет:
+DELETE FROM Employees
+WHERE DateOfEmployement > '19520721'
+
+Скрипт обновления зп до 15000 тем сотрудникам, у которых она меньше:
+UPDATE Employees
+SET Salary = 15000
+WHERE Salary < 15000
+
