@@ -54,7 +54,7 @@ public class EmployeesController : Controller
     [HttpPost]
     public async Task<IActionResult> Edit(EmployeeViewModel Model)
     {
-        if (!ModelState.IsValid) return View(Model);
+        if (ModelState.IsValid) return View(Model);
 
         var employee = Model.FromView();
 

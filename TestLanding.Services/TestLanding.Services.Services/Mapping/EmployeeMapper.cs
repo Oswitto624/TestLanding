@@ -15,7 +15,7 @@ public static class EmployeeMapper
             LastName = employee.LastName,
             Patronymic = employee.Patronymic,
             DateOfBirth = employee.DateOfBirth,
-            Department = employee.Department.Name,
+            Department = employee.Department,
             Salary = employee.Salary,
             DateOfEmployment = employee.DateOfEmployment,
             ShortName = employee.ShortName,
@@ -34,6 +34,7 @@ public static class EmployeeMapper
             Salary = employee.Salary,
             DateOfEmployment = employee.DateOfEmployment,
             DepartmentId = employee.DepartmentId,
+            Department = employee.Department,
         };
 
     public static IEnumerable<EmployeeViewModel?> ToView(this IEnumerable<Employee?> employee) => employee.Select(ToView);
