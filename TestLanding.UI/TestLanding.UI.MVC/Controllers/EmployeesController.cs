@@ -37,7 +37,19 @@ public class EmployeesController : Controller
     public IActionResult Create()
     {
         DepartmentDropDownList();
-        return View("Edit", new EmployeeViewModel());
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(EmployeeViewModel employee)
+    {
+        var validState = ModelState.Values;
+        //if(ModelState.IsValid)
+            await _EmployeesData.AddAsync(employee.FromView());
+
+        DepartmentDropDownList(employee.DepartmentId);
+
+        return View(employee);
     }
 
     public async Task<IActionResult> Edit(int? Id)

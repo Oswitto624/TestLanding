@@ -42,15 +42,16 @@ public class EmployeeViewModel : IValidatableObject
 
     [Display(Name = "Дата устройства")]
     [Required(ErrorMessage = "Дата устройства является обязательной!")]
+    [DataType(DataType.Date)]
     public DateTime DateOfEmployment { get; set; } 
 
     [Display(Name = "Дата рождения")]
     [Required(ErrorMessage = "Дата рождения является обязательной!")]
+    [DataType(DataType.Date)]
     public DateTime DateOfBirth { get; set; } 
 
     [Display(Name = "Фамилия и инициалы")]
     public string? ShortName { get; set; }
-
 
     public IEnumerable<ValidationResult> Validate(ValidationContext Context)
     {
