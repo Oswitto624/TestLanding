@@ -49,7 +49,7 @@ public class EmployeesController : Controller
 
         DepartmentDropDownList(employee.DepartmentId);
 
-        return View(employee);
+        return RedirectToAction(nameof(Index));
     }
 
     public async Task<IActionResult> Edit(int? Id)
