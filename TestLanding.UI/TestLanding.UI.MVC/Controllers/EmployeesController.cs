@@ -18,73 +18,39 @@ public class EmployeesController : Controller
         _Logger = Logger;
     }
 
-    public async Task<IActionResult> Index(string sortOrder)
+    public async Task<IActionResult> Index(SortState sortOrder = SortState.IdAsc)
     {
-        ViewBag.IdSortParam = sortOrder == "Id" ? "Id_desc" : "Id";
-        ViewBag.LastNameSortParam = sortOrder == "LastName" ? "LastName_desc" : "LastName";
-        ViewBag.FirstNameSortParam = sortOrder == "FirstName" ? "FirstName_desc" : "FirstName";
-        ViewBag.PatronymicSortParam = sortOrder == "Patronymic" ? "Patronymic_desc" : "Patronymic";
-        ViewBag.DepartmentSortParam = sortOrder == "Department" ? "Department_desc" : "Department";
-        ViewBag.DateOfBirthSortParam = sortOrder == "DateOfBirth" ? "DateOfBirth_desc" : "DateOfBirth";
-        ViewBag.DateOfDepartmentSortParam = sortOrder == "DateOfDepartment" ? "DateOfDepartment_desc" : "DateOfDepartment";
-        ViewBag.SalarySortParam = sortOrder == "Salary" ? "Salary_desc" : "Salary";
-
         var employees = await _EmployeesData.GetAllAsync();
 
-        switch (sortOrder)
+        ViewData["IdSort"] = sortOrder == SortState.IdAsc ? SortState.IdDesc : SortState.IdAsc;
+        ViewData["LastNameSort"] = sortOrder == SortState.LastNameAsc ? SortState.LastNameDesc : SortState.LastNameAsc;
+        ViewData["FirstNameSort"] = sortOrder == SortState.FirstNameAsc ? SortState.FirstNameDesc : SortState.FirstNameAsc;
+        ViewData["PatronymicSort"] = sortOrder == SortState.PatronymicAsc ? SortState.PatronymicDesc : SortState.PatronymicAsc;
+        ViewData["DateOfBirthSort"] = sortOrder == SortState.DateOfBirthAsc ? SortState.DateOfBirthDesc : SortState.DateOfBirthAsc;
+        ViewData["DepartmentSort"] = sortOrder == SortState.DepartmentAsc ? SortState.DepartmentDesc : SortState.DepartmentAsc;
+        ViewData["SalarySort"] = sortOrder == SortState.SalaryAsc ? SortState.SalaryDesc : SortState.SalaryAsc;
+        ViewData["DateOfEmploymentSort"] = sortOrder == SortState.DateOfEmploymentAsc ? SortState.DateOfEmploymentDesc : SortState.DateOfEmploymentAsc;
+
+        employees = sortOrder switch
         {
-            case "Id":
-                employees = employees.OrderBy(s => s.Id);
-                break;
-            case "Id_desc":
-                employees = employees.OrderByDescending(s => s.Id);
-                break;
-            case "LastName":
-                employees = employees.OrderBy(s => s.LastName);
-                break;
-            case "LastName_desc":
-                employees = employees.OrderByDescending(s => s.LastName);
-                break;
-            case "FirstName":
-                employees = employees.OrderBy(s => s.FirstName);
-                break;
-            case "FirstName_desc":
-                employees = employees.OrderByDescending(s => s.FirstName);
-                break;
-            case "Patronymic":
-                employees = employees.OrderBy(s => s.Patronymic);
-                break;
-            case "Patronymic_desc":
-                employees = employees.OrderByDescending(s => s.Patronymic);
-                break;
-            case "Department":
-                employees = employees.OrderBy(s => s.Department.Name);
-                break;
-            case "Department_desc":
-                employees = employees.OrderByDescending(s => s.Department.Name);
-                break;
-            case "DateOfBirth":
-                employees = employees.OrderBy(s => s.DateOfBirth);
-                break;
-            case "DateOfBirth_desc":
-                employees = employees.OrderByDescending(s => s.DateOfBirth);
-                break;
-            case "DateOfDepartment":
-                employees = employees.OrderBy(s => s.DateOfEmployment);
-                break;
-            case "DateOfDepartment_desc":
-                employees = employees.OrderByDescending(s => s.DateOfEmployment);
-                break;
-            case "Salary":
-                employees = employees.OrderBy(s => s.Salary);
-                break;
-            case "Salary_desc":
-                employees = employees.OrderByDescending(s => s.Salary);
-                break;
-            default:
-                employees = employees.OrderBy(s => s.Id);
-                break;
-        }
+            SortState.IdAsc => employees.OrderBy(s => s.Id),
+            SortState.IdDesc => employees.OrderByDescending(s => s.Id),
+            SortState.LastNameAsc => employees.OrderBy(s => s.LastName),
+            SortState.LastNameDesc => employees.OrderByDescending(s => s.LastName),
+            SortState.FirstNameAsc => employees.OrderBy(s => s.FirstName),
+            SortState.FirstNameDesc => employees.OrderByDescending(s => s.FirstName),
+            SortState.PatronymicAsc => employees.OrderBy(s => s.Patronymic),
+            SortState.PatronymicDesc => employees.OrderByDescending(s => s.Patronymic),
+            SortState.DateOfBirthAsc => employees.OrderBy(s => s.DateOfBirth),
+            SortState.DateOfBirthDesc => employees.OrderByDescending(s => s.DateOfBirth),
+            SortState.DepartmentAsc => employees.OrderBy(s => s.Department.Name),
+            SortState.DepartmentDesc => employees.OrderByDescending(s => s.Department.Name),
+            SortState.SalaryAsc => employees.OrderBy(s => s.Salary),
+            SortState.SalaryDesc => employees.OrderByDescending(s => s.Salary),
+            SortState.DateOfEmploymentAsc => employees.OrderBy(s => s.DateOfEmployment),
+            SortState.DateOfEmploymentDesc => employees.OrderByDescending(s => s.DateOfEmployment),
+            _ => employees.OrderBy(s => s.Id),
+        };
 
         return View(employees.ToView().ToList());
     }
