@@ -45,7 +45,7 @@ public class EmployeesController : Controller
     {
         var validState = ModelState.Values;
         //if(ModelState.IsValid)
-            await _EmployeesData.AddAsync(employee.FromView());
+            await _EmployeesData.AddAsync(employee.FromView()!);
 
         DepartmentDropDownList(employee.DepartmentId);
 
@@ -73,7 +73,7 @@ public class EmployeesController : Controller
     [HttpPost]
     public async Task<IActionResult> Edit(EmployeeViewModel Model)
     {
-        if (!ModelState.IsValid) return View(Model);
+        //if (!ModelState.IsValid) return View(Model);
 
         var employee = Model.FromView();
         DepartmentDropDownList(Model.DepartmentId);
