@@ -55,5 +55,5 @@ public class Employee : Entity, IOrderedEntity
 
     public int Order { get; set; }
 
-    public override string ToString() => $"[{Id}] {Department.Name} {ShortName} {DateOfEmployment}";
+    public override string ToString() => $"[{Id}] {ShortName} ";
 }

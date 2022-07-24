@@ -98,7 +98,7 @@ public class SqlEmployesService : IEmployeesData
         _db.Update(employee);
         await _db.SaveChangesAsync(Cancel);
 
-        _Logger.LogInformation("Сотрудник (id:{0}){1} добавлен.", employee.Id, employee);
+        _Logger.LogInformation("Сотрудник (id:{0}){1} обновлён.", employee.Id, employee.ShortName);
 
         return true;
     }
