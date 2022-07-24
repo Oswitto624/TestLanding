@@ -12,6 +12,13 @@
 
     @if (Model.Any())
     {
+        @using (Html.BeginForm())
+        {
+            <p>Поиск по имени: @Html.TextBox("searchString")
+            <input type="submit" value="Поиск"/></p>
+            
+        }
+
         <table class="table table-striped table-hover">
             <thead>
                 <tr>

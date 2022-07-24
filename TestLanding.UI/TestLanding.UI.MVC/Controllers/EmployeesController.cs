@@ -18,9 +18,18 @@ public class EmployeesController : Controller
         _Logger = Logger;
     }
 
-    public async Task<IActionResult> Index(SortState sortOrder = SortState.IdAsc)
+    public async Task<IActionResult> Index(string searchString,
+                                           SortState sortOrder = SortState.IdAsc)
     {
         var employees = await _EmployeesData.GetAllAsync();
+
+        if(!string.IsNullOrEmpty(searchString))
+            employees = employees.Where(
+                s => s.LastName.ToUpper().Contains(searchString.ToUpper())
+                || s.FirstName.ToUpper().Contains(searchString.ToUpper())
+                || s.Patronymic!.ToUpper().Contains(searchString.ToUpper()));
+
+        #region Sort
 
         ViewData["IdSort"] = sortOrder == SortState.IdAsc ? SortState.IdDesc : SortState.IdAsc;
         ViewData["LastNameSort"] = sortOrder == SortState.LastNameAsc ? SortState.LastNameDesc : SortState.LastNameAsc;
@@ -51,6 +60,8 @@ public class EmployeesController : Controller
             SortState.DateOfEmploymentDesc => employees.OrderByDescending(s => s.DateOfEmployment),
             _ => employees.OrderBy(s => s.Id),
         };
+
+        #endregion
 
         return View(employees.ToView().ToList());
     }
