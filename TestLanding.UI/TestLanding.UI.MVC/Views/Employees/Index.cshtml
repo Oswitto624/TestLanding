@@ -14,9 +14,9 @@
     {
         @using (Html.BeginForm())
         {
-            <p>Поиск по имени: @Html.TextBox("searchString")
-            <input type="submit" value="Поиск"/></p>
-            
+            <p>Поиск по имени: @Html.TextBox("searchString")</p>
+            <p> Отдел: @Html.DropDownList("DepartmentId")</p>
+            <input type="submit" value="Поиск"/>
         }
 
         <table class="table table-striped table-hover">

@@ -19,6 +19,7 @@ public class EmployeesController : Controller
     }
 
     public async Task<IActionResult> Index(string searchString,
+                                           int? departmentSearchNum,
                                            SortState sortOrder = SortState.IdAsc)
     {
         var employees = await _EmployeesData.GetAllAsync();
@@ -28,6 +29,16 @@ public class EmployeesController : Controller
                 s => s.LastName.ToUpper().Contains(searchString.ToUpper())
                 || s.FirstName.ToUpper().Contains(searchString.ToUpper())
                 || s.Patronymic!.ToUpper().Contains(searchString.ToUpper()));
+
+        if (departmentSearchNum != null)
+            employees = employees.Where(p => p.Department.Id == departmentSearchNum);
+
+        List<Department> departments = _EmployeesData.GetDepartments().ToList();
+
+        departments.Insert(0, new Department { Id = 0, Name = "Все" });
+
+        ViewData["Departments"] = departments;
+        DepartmentDropDownList(departments);
 
         #region Sort
 
